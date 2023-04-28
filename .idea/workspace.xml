@@ -5,10 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="799d3747-af4f-46fb-aac2-0974427812a8" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/Library-Event-Driven-Kafka.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/library-events-consumer.zip" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/library-events-consumer/src/main/java/com/learnkafka/consumer/LibraryEventsRetryConsumer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/library-events-consumer/src/main/java/com/learnkafka/entity/Book.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/library-events-consumer/src/main/java/com/learnkafka/entity/LibraryEvent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/library-events-consumer/src/main/java/com/learnkafka/entity/LibraryEventType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/library-events-consumer/src/main/java/com/learnkafka/jpa/LibraryEventRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/library-events-consumer/src/main/java/com/learnkafka/service/LibraryEventService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/library-events-consumer/src/test/java/intg/com/learnkafka/consumer/LibraryEventsConsumerIntegrationTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/library-events-consumer/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/library-events-consumer/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/library-events-consumer/src/main/java/com/learnkafka/config/LibraryEventsConsumerConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/library-events-consumer/src/main/java/com/learnkafka/config/LibraryEventsConsumerConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/library-events-consumer/src/main/java/com/learnkafka/consumer/LibraryEventsConsumer.java" beforeDir="false" afterPath="$PROJECT_DIR$/library-events-consumer/src/main/java/com/learnkafka/consumer/LibraryEventsConsumer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/library-events-consumer/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/library-events-consumer/src/main/resources/application.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,17 +36,21 @@
       <state>
         <projects_view>
           <tree_state>
-            <expand>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="library-events-producer" type="f1a62948:ProjectNode" />
-              </path>
-            </expand>
+            <expand />
             <select />
           </tree_state>
         </projects_view>
       </state>
     </system>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="package-info" />
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -51,40 +63,145 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "master",
-    "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "D:/SaüTasarımVeCV",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Problems",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "spring.configuration.checksum": "58145cc001a725618bbcaa16f950d4a7",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/SpringBoot_KAFKA/Library-Event-Driven-Kafka&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Problems&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;spring.configuration.checksum&quot;: &quot;58145cc001a725618bbcaa16f950d4a7&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
-  <component name="RunManager" selected="Spring Boot.LibraryEventsProducerApplication">
-    <configuration default="true" type="JetRunConfigurationType">
-      <module name="Library-Event-Driven-Kafka" />
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\SpringBoot_KAFKA\Library-Event-Driven-Kafka\library-events-consumer\src\main\java\com\learnkafka\entity" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Spring Boot.LibraryEventsConsumerApplication">
+    <configuration name="deneme" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.learnkafka.config.deneme" />
+      <module name="library-events-producer.main" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.learnkafka.config.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
-      <module name="Library-Event-Driven-Kafka" />
-      <option name="filePath" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
+    <configuration name="LibraryEventsConsumerIntegrationTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/library-events-consumer" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;com.learnkafka.consumer.LibraryEventsConsumerIntegrationTest&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <ForceTestExec>true</ForceTestExec>
+      <method v="2" />
+    </configuration>
+    <configuration name="LibraryEventsConsumerIntegrationTest.publishNewLibraryEvent" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/library-events-consumer" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;com.learnkafka.consumer.LibraryEventsConsumerIntegrationTest.publishNewLibraryEvent&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <ForceTestExec>true</ForceTestExec>
+      <method v="2" />
+    </configuration>
+    <configuration name="LibraryEventsConsumerIntegrationTest.publishUpdateLibraryEvent_999_LibraryEvent" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/library-events-consumer" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;com.learnkafka.consumer.LibraryEventsConsumerIntegrationTest.publishUpdateLibraryEvent_999_LibraryEvent&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <ForceTestExec>true</ForceTestExec>
+      <method v="2" />
+    </configuration>
+    <configuration name="LibraryEventsConsumerIntegrationTest.publishUpdateLibraryEvent_null_LibraryEvent" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/library-events-consumer" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;com.learnkafka.consumer.LibraryEventsConsumerIntegrationTest.publishUpdateLibraryEvent_null_LibraryEvent&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <ForceTestExec>true</ForceTestExec>
+      <method v="2" />
     </configuration>
     <configuration name="LibraryEventsConsumerApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="library-events-consumer.main" />
@@ -100,6 +217,15 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Gradle.LibraryEventsConsumerIntegrationTest.publishUpdateLibraryEvent_999_LibraryEvent" />
+        <item itemvalue="Gradle.LibraryEventsConsumerIntegrationTest.publishUpdateLibraryEvent_null_LibraryEvent" />
+        <item itemvalue="Gradle.LibraryEventsConsumerIntegrationTest.publishNewLibraryEvent" />
+        <item itemvalue="Gradle.LibraryEventsConsumerIntegrationTest" />
+        <item itemvalue="Application.deneme" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -116,10 +242,46 @@
       <workItem from="1680992995448" duration="237000" />
       <workItem from="1680993250194" duration="30000" />
       <workItem from="1680993312129" duration="34000" />
+      <workItem from="1681111684864" duration="1890000" />
+      <workItem from="1681141548815" duration="1015000" />
+      <workItem from="1681382721634" duration="4684000" />
+      <workItem from="1681659843410" duration="3126000" />
+      <workItem from="1681896902660" duration="603000" />
+      <workItem from="1682342281429" duration="5508000" />
+      <workItem from="1682688299742" duration="2183000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="UnknownFeatures">
+    <option featureType="com.intellij.fileTypeFactory" implementationName="application.yml" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/library-events-consumer/src/main/java/com/learnkafka/service/LibraryEventService.java</url>
+          <line>29</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/library-events-consumer/src/main/java/com/learnkafka/consumer/LibraryEventsConsumer.java</url>
+          <line>22</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/library-events-consumer/src/main/java/com/learnkafka/consumer/LibraryEventsConsumer.java</url>
+          <line>23</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/library-events-consumer/src/test/java/intg/com/learnkafka/consumer/LibraryEventsConsumerIntegrationTest.java</url>
+          <line>208</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

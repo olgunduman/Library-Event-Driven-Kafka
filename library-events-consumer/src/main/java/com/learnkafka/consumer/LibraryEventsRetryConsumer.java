@@ -4,23 +4,28 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.learnkafka.service.LibraryEventService;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Component;
 
 @Component
 @Slf4j
-public class LibraryEventsConsumer {
+public class LibraryEventsRetryConsumer {
+
+
 
     private final LibraryEventService libraryEventService;
 
-    public LibraryEventsConsumer(LibraryEventService libraryEventService) {
+    public LibraryEventsRetryConsumer(LibraryEventService libraryEventService) {
         this.libraryEventService = libraryEventService;
     }
 
-    @KafkaListener(topics = {"library-events"},groupId = "lbrary-events-listener-group")
+    @KafkaListener(topics = {"${topics.retry}"},autoStartup = "${retryListener.startup:true}", groupId = "retry-listener-group")
     public void onMessage(ConsumerRecord<Integer,String> consumerRecord) throws JsonProcessingException {
 
-        log.info("ConsumerRecord : {}",consumerRecord);
+        log.info("ConsumerRecord in Retry Consumer : {}",consumerRecord);
+        consumerRecord.headers()
+                        .forEach(header -> log.info("Key : {} and Value : {}",header.key(),new String(header.value())));
         libraryEventService.processLibraryEvent(consumerRecord);
 
     }
