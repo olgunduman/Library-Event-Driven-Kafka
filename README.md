@@ -13,7 +13,7 @@
 
  > Apache Kafka
 
- > MaribaDB on AWS
+ > H2 DB
 
  > Integration And Unit Testing
 
